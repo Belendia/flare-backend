@@ -11,7 +11,7 @@ class LanguageModelApi(ModelRestApi):
     datamodel = SQLAInterface(Language)
     add_columns = ['name', 'code']
     edit_columns = ['name', 'code']
-    #list_columns = ['name', 'address']
+    list_columns = ['name', 'code']
 
 appbuilder.add_api(LanguageModelApi)
 

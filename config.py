@@ -24,10 +24,10 @@ CSRF_ENABLED = True
 # GLOBALS FOR APP Builder
 # ------------------------------
 # Uncomment to setup Your App name
-# APP_NAME = "My App Name"
+APP_NAME = "FLARE"
 
 # Uncomment to setup Setup an App icon
-# APP_ICON = "static/img/logo.jpg"
+APP_ICON = "static/img/logo.png"
 
 # ----------------------------------------------------
 # AUTHENTICATION CONFIG
@@ -69,14 +69,7 @@ BABEL_DEFAULT_LOCALE = "en"
 BABEL_DEFAULT_FOLDER = "translations"
 # The allowed translation for you app
 LANGUAGES = {
-    "en": {"flag": "gb", "name": "English"},
-    "pt": {"flag": "pt", "name": "Portuguese"},
-    "pt_BR": {"flag": "br", "name": "Pt Brazil"},
-    "es": {"flag": "es", "name": "Spanish"},
-    "de": {"flag": "de", "name": "German"},
-    "zh": {"flag": "cn", "name": "Chinese"},
-    "ru": {"flag": "ru", "name": "Russian"},
-    "pl": {"flag": "pl", "name": "Polish"},
+    "en": {"flag": "gb", "name": "English"}
 }
 # ---------------------------------------------------
 # Image and file configuration
@@ -111,3 +104,4 @@ IMG_UPLOAD_URL = "/static/uploads/"
 
 FAB_API_SWAGGER_UI=True
 FAB_API_SHOW_STACKTRACE=True
+JWT_ACCESS_TOKEN_EXPIRES=60*60

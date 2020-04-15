@@ -1,36 +1,29 @@
 from flask import render_template
 from flask_appbuilder.models.sqla.interface import SQLAInterface
-from flask_appbuilder import (ModelView, ModelRestApi, BaseView, expose, has_access)
+from flask_appbuilder import ModelView
+
+from .models import Language
 
 from . import appbuilder, db
 
-"""
-    Create your Model based REST API::
-
-    class MyModelApi(ModelRestApi):
-        datamodel = SQLAInterface(MyModel)
-
-    appbuilder.add_api(MyModelApi)
 
 
-    Create your Views::
+class LanguageModelView(ModelView):
+    datamodel = SQLAInterface(Language)
+
+    add_columns = ['name', 'code']
+    edit_columns = ['name', 'code']
+    list_columns = ['name','code']
+    show_columns = ['code','name','created_by', 'created_on', 'changed_by','changed_on']
 
 
-    class MyModelView(ModelView):
-        datamodel = SQLAInterface(MyModel)
-
-
-    Next, register your Views::
-
-
-    appbuilder.add_view(
-        MyModelView,
-        "My View",
-        icon="fa-folder-open-o",
-        category="My Category",
-        category_icon='fa-envelope'
-    )
-"""
+appbuilder.add_view(
+    LanguageModelView,
+    "Languages",
+    icon = "fa-folder-open-o",
+    category = "Settings",
+    category_icon = "fa-envelope"
+)
 
 """
     Application wide 404 error handler

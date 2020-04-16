@@ -19,10 +19,10 @@ class LanguageModelView(ModelView):
 
 appbuilder.add_view(
     LanguageModelView,
-    "Languages",
-    icon = "fa-folder-open-o",
+    "Language",
+    icon = "fa-globe",
     category = "Settings",
-    category_icon = "fa-envelope"
+    category_icon = "fa-cog"
 )
 
 """

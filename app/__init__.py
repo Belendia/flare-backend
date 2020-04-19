@@ -2,6 +2,7 @@ import logging
 
 from flask import Flask
 from flask_appbuilder import AppBuilder, SQLA
+from flask_migrate import Migrate
 from flask_cors import CORS
 
 
@@ -17,6 +18,7 @@ CORS(app)
 
 app.config.from_object("config")
 db = SQLA(app)
+migrate = Migrate(app, db)
 appbuilder = AppBuilder(app, db.session)
 
 

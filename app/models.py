@@ -8,7 +8,7 @@ from sqlalchemy.orm import relationship, backref
 
 class Language(AuditMixin, Model):
     id = Column(Integer, primary_key=True)
-    name = Column(String(50), nullable=False)
+    name = Column(String(50), unique=True, nullable=False)
     code = Column(String(10), unique=True, nullable=False)
 
     def __repr__(self):

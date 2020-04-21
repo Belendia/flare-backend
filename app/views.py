@@ -2,7 +2,7 @@ from flask import render_template
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder import ModelView
 
-from .models import Language, Subscriber
+from .models import Language, Subscriber, Message
 
 from . import appbuilder, db
 
@@ -25,6 +25,23 @@ appbuilder.add_view(
     category_icon = "fa-cog"
 )
 
+class MessageModelView(ModelView):
+    datamodel = SQLAInterface(Message)
+
+    add_columns = ['content', 'language']
+    edit_columns = ['content', 'language']
+    list_columns = ['content','language']
+
+
+    def __repr__(self):
+        return self.telephone
+
+appbuilder.add_view(
+    MessageModelView,
+    "Messages",
+    icon = "fa-commenting",
+)
+
 class LanguageModelView(ModelView):
     datamodel = SQLAInterface(Language)
 
@@ -32,7 +49,7 @@ class LanguageModelView(ModelView):
     edit_columns = ['name', 'code']
     list_columns = ['name','code']
     show_columns = ['code','name','created_by', 'created_on', 'changed_by','changed_on']
-    related_views = [SubscriberModelView]
+    related_views = [SubscriberModelView, MessageModelView]
 
 
 appbuilder.add_view(

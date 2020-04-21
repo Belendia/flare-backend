@@ -56,7 +56,8 @@ assoc_subscriber_result = Table(
 class Message(AuditMixin, Model):
     id = Column(Integer, primary_key=True)
     content = Column(String, nullable=False)
-    translations = Column(String)
+    language_id = Column(Integer, ForeignKey('language.id'), nullable=False)
+    language = relationship("Language")
 
     def __repr__(self):
         return self.content
